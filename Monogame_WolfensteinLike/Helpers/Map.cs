@@ -1,13 +1,4 @@
-﻿/**
- * Owain Bell - 2017
- * */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RaycastEngine
+﻿namespace Monogame_WolfensteinLike
 {
     class Map
     {

@@ -1,27 +1,11 @@
-﻿/**
- * Owain Bell - 2017
- * Code reworked into some simple OOP classes from the well known tutorial - http://lodev.org/cgtutor/raycasting.html 
- * */
+﻿using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static RaycastEngine.MainGame;//annoying dependancy
 
-/**
- * Class that represents a camera in terms of raycasting.  
- * Contains methods to move the camera, and handles projection to,
- * set the rectangle slice position and height,
- */
-namespace RaycastEngine
+namespace Monogame_WolfensteinLike
 {
     class Camera
     {
-
         //--camera position, init to start position--//
         private static Vector2 pos = new Vector2(22.5f, 11.5f);
 
@@ -81,46 +65,22 @@ namespace RaycastEngine
 
         public void update()
         {
-            //--do raycast--//
             raycast();
 
-            //=========================//
-            //=====take user input=====//
-            //=========================//
 
             KeyboardState state = Keyboard.GetState();
 
-            bool lArrowKeyDown = state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A);
-
-            if (lArrowKeyDown)
-            {
+            if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
                 rotate(rotSpeed);
-            }
-
-            bool rArrowKeyDown = state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D);
-
-            if (rArrowKeyDown)
-            {
+            else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
                 rotate(-rotSpeed);
-            }
 
-            bool uArrowKeyDown = state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W);
 
-            if (uArrowKeyDown)
-            {
+            if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
                 move(moveSpeed);
-            }
-
-            bool dArrowKeyDown = state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S);
-
-            if (dArrowKeyDown)
-            {
+            else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
                 move(-moveSpeed);
-            }
 
-            //=========================//
-            //=====user input end======//
-            //=========================//
         }
 
         public void raycast()
@@ -136,7 +96,6 @@ namespace RaycastEngine
                     castLevel(x, map, lvls[i].cts, lvls[i].sv, lvls[i].st, i);
                 }
             }
-
         }
 
         /**

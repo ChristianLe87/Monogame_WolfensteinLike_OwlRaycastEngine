@@ -1,17 +1,6 @@
-﻿/**
- * Owain Bell - 2017
- * */
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
 
-/**
- * Class splits textures into frames among other things
- */
-namespace RaycastEngine
+namespace Monogame_WolfensteinLike
 {
     class TextureHandler
     {
